@@ -23,7 +23,7 @@ public class SetHomeCommand {
 
         String pos = "(" + playerPos.getX() + ", " + playerPos.getY() + ", " + playerPos.getZ() + ")";
 
-        player.getPersistentData().putIntArray(LapisNeroMOD.MOD_ID + player.getId() + "homepos",
+        player.getPersistentData().putIntArray(LapisNeroMOD.MOD_ID + player.getId() + player.getScoreboardName() + "homepos",
                 new int[]{playerPos.getX(), playerPos.getY(), playerPos.getZ()});
 
         player.displayClientMessage(Component.literal("Set home at " + pos), true);

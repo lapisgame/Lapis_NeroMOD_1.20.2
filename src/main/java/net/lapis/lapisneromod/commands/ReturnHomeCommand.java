@@ -20,10 +20,11 @@ public class ReturnHomeCommand {
     private int Home(CommandContext<CommandSourceStack> context) throws CommandSyntaxException{
         Player player = context.getSource().getPlayerOrException();
 
-        boolean hasHomepos = player.getPersistentData().getIntArray(LapisNeroMOD.MOD_ID + player.getId() + "homepos").length != 0;
+        boolean hasHomepos = player.getPersistentData()
+                .getIntArray(LapisNeroMOD.MOD_ID + player.getId() + player.getScoreboardName() + "homepos").length != 0;
 
         if (hasHomepos){
-            int[] playerPos = player.getPersistentData().getIntArray(LapisNeroMOD.MOD_ID + player.getId() + "homepos");
+            int[] playerPos = player.getPersistentData().getIntArray(LapisNeroMOD.MOD_ID + player.getId() + player.getScoreboardName() + "homepos");
             player.moveTo( playerPos[0], playerPos[1], playerPos[2]);
 
             player.displayClientMessage(Component.literal("Return Home!"), true);
